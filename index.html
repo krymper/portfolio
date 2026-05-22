@@ -56,6 +56,89 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
 .back-btn:hover{border-color:#fff;color:#fff;}
 .gallery-view-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:#fff;}
 .gallery-view-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jocelyn Alazard — Photographe</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0a0a0a;color:#fff;font-family:'EB Garamond',Georgia,serif;min-height:100vh;overflow-x:hidden;}
+
+nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;}
+.nav-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;letter-spacing:0.03em;color:#fff;margin-bottom:0.9rem;}
+.nav-links{display:flex;gap:2.8rem;}
+.nav-links a{font-family:'EB Garamond',serif;font-size:1rem;font-weight:400;color:#ccc;text-decoration:none;letter-spacing:0.03em;cursor:pointer;padding-bottom:3px;border-bottom:1.5px solid transparent;transition:color 0.2s,border-color 0.2s;}
+.nav-links a.active{color:#fff;border-bottom-color:#fff;}
+.nav-links a:hover{color:#fff;}
+
+.page{display:none;}
+.page.active{display:block;}
+
+/* HERO */
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:62vh;text-align:center;padding:4rem 2rem;}
+.hero-sub{font-size:0.9rem;color:#777;letter-spacing:0.1em;margin-bottom:1.2rem;}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,9vw,6rem);font-weight:700;color:#D4940A;line-height:1.05;margin-bottom:1.6rem;}
+.hero-desc{font-size:1.1rem;color:#999;max-width:500px;line-height:1.8;font-style:italic;}
+.portfolio-heading{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:400;color:#fff;text-align:center;padding:2rem 2rem 2.5rem;}
+
+/* GALLERY GRID HOME */
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0 4% 5rem;}
+.gallery-item{cursor:pointer;overflow:hidden;}
+.gallery-item-inner{overflow:hidden;}
+.gallery-item img{width:100%;height:320px;object-fit:cover;display:block;transition:transform 0.5s ease,filter 0.4s ease;filter:brightness(0.9);}
+.gallery-item:hover img{transform:scale(1.04);filter:brightness(1.05);}
+.gallery-caption{padding:1rem 0.3rem 2.5rem;}
+.gallery-caption strong{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;display:block;margin-bottom:0.2rem;}
+.gallery-caption span{font-size:0.85rem;color:#666;letter-spacing:0.04em;}
+
+/* FOOTER BAND (home + galeries) */
+.footer-band{display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:4rem 6%;border-top:1px solid #181818;gap:2rem;}
+.footer-quote{font-size:1.15rem;color:#bbb;line-height:1.75;font-style:italic;max-width:400px;}
+.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:1rem;}
+.footer-cta-title{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;}
+.footer-buttons{display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:flex-end;}
+.footer-btn{border:1px solid #3a3a3a;color:#bbb;background:transparent;padding:0.45rem 1.1rem;border-radius:999px;font-family:'EB Garamond',serif;font-size:0.9rem;cursor:pointer;transition:border-color 0.2s,color 0.2s;}
+.footer-btn:hover{border-color:#fff;color:#fff;}
+
+/* CTA BAND galeries (sans citation) */
+.cta-band{display:flex;flex-direction:column;align-items:flex-end;padding:3rem 6%;border-top:1px solid #181818;gap:0.8rem;}
+.cta-band-title{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;}
+.cta-band-buttons{display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:flex-end;}
+
+.site-footer{text-align:center;padding:2.5rem;border-top:1px solid #111;}
+.site-footer h2{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+.site-footer p{font-size:0.8rem;color:#444;}
+
+/* GALLERY GRID VIEW */
+.gallery-view{padding:3rem 5%;}
+.gallery-view-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.5rem;}
+.back-btn{border:1px solid #333;color:#aaa;background:transparent;padding:0.4rem 1rem;border-radius:999px;font-family:'EB Garamond',serif;font-size:0.9rem;cursor:pointer;transition:border-color 0.2s,color 0.2s;}
+.back-btn:hover{border-color:#fff;color:#fff;}
+.gallery-view-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:#fff;}
+
+/* PORTRAITS — grille masonry-like avec colonnes CSS */
+.portraits-grid{
+  columns:3;
+  column-gap:5px;
+  padding:0 5% 0;
+}
+.portraits-grid img{
+  width:100%;
+  display:block;
+  margin-bottom:5px;
+  break-inside:avoid;
+  cursor:pointer;
+  filter:brightness(0.88);
+  transition:filter 0.3s;
+}
+.portraits-grid img:hover{filter:brightness(1.05);}
+
+/* SPORTS grid standard */
+.gallery-view-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;}
 .gallery-view-grid img{width:100%;height:220px;object-fit:cover;display:block;cursor:pointer;transition:filter 0.3s;filter:brightness(0.88);}
 .gallery-view-grid img:hover{filter:brightness(1.08);}
 
@@ -66,9 +149,9 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
   overflow-y:hidden;
   cursor:grab;
   -webkit-overflow-scrolling:touch;
-  scrollbar-width:none; /* Firefox */
+  scrollbar-width:none;
 }
-.slider-outer::-webkit-scrollbar{display:none;} /* Chrome/Safari */
+.slider-outer::-webkit-scrollbar{display:none;}
 .slider-outer.grabbing{cursor:grabbing;}
 .slider-track{
   display:flex;
@@ -126,10 +209,13 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
   .footer-band{grid-template-columns:1fr;}
   .footer-right{align-items:flex-start;}
   .gallery-view-grid{grid-template-columns:repeat(2,1fr);}
+  .portraits-grid{columns:2;}
   .contact-wrapper{grid-template-columns:1fr;gap:3rem;padding:4rem 6%;}
   .contact-info{text-align:left;}
   .contact-info .info-text{margin-left:0;}
   .slider-track img{height:50vh;}
+  .cta-band{align-items:flex-start;}
+  .cta-band-buttons{justify-content:flex-start;}
 }
 </style>
 </head>
@@ -187,7 +273,7 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
   </footer>
 </div>
 
-<!-- GALLERY GRID VIEW -->
+<!-- GALLERY GRID VIEW (sports) -->
 <div id="page-gallery" class="page">
   <div class="gallery-view">
     <div class="gallery-view-header">
@@ -196,13 +282,44 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
     </div>
     <div class="gallery-view-grid" id="gallery-view-grid"></div>
   </div>
-  <footer class="site-footer" style="margin-top:4rem;">
+  <div class="cta-band">
+    <p class="cta-band-title">Commençons votre prochain projet</p>
+    <div class="cta-band-buttons">
+      <button class="footer-btn" onclick="showPage('home',0)">Portfolio</button>
+      <button class="footer-btn" onclick="showPage('about',1)">A propos de moi</button>
+      <button class="footer-btn" onclick="showPage('contact',2)">Contacts</button>
+    </div>
+  </div>
+  <footer class="site-footer">
     <h2>Jocelyn Alazard</h2>
     <p>2026. All rights reserved.</p>
   </footer>
 </div>
 
-<!-- FREE SCROLL SLIDER VIEW -->
+<!-- PORTRAITS VIEW (masonry) -->
+<div id="page-portraits" class="page">
+  <div class="gallery-view">
+    <div class="gallery-view-header">
+      <button class="back-btn" onclick="closeGallery()">← Retour</button>
+      <h2 class="gallery-view-title">Portraits</h2>
+    </div>
+  </div>
+  <div class="portraits-grid" id="portraits-grid"></div>
+  <div class="cta-band" style="margin-top:3rem;">
+    <p class="cta-band-title">Commençons votre prochain projet</p>
+    <div class="cta-band-buttons">
+      <button class="footer-btn" onclick="showPage('home',0)">Portfolio</button>
+      <button class="footer-btn" onclick="showPage('about',1)">A propos de moi</button>
+      <button class="footer-btn" onclick="showPage('contact',2)">Contacts</button>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <h2>Jocelyn Alazard</h2>
+    <p>2026. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- FREE SCROLL SLIDER VIEW (sportsAuto + details) -->
 <div id="page-slider" class="page">
   <div class="gallery-view">
     <div class="gallery-view-header">
@@ -214,7 +331,15 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
     <div class="slider-track" id="slider-track"></div>
   </div>
   <div class="slider-counter" id="slider-counter"></div>
-  <footer class="site-footer" style="margin-top:2rem;">
+  <div class="cta-band">
+    <p class="cta-band-title">Commençons votre prochain projet</p>
+    <div class="cta-band-buttons">
+      <button class="footer-btn" onclick="showPage('home',0)">Portfolio</button>
+      <button class="footer-btn" onclick="showPage('about',1)">A propos de moi</button>
+      <button class="footer-btn" onclick="showPage('contact',2)">Contacts</button>
+    </div>
+  </div>
+  <footer class="site-footer">
     <h2>Jocelyn Alazard</h2>
     <p>2026. All rights reserved.</p>
   </footer>
@@ -287,13 +412,13 @@ const galleries = {
     imgs: ['photos/sports/sports1.jpg']
   },
   portraits: {
-    title: 'Portraits', type: 'grid',
+    title: 'Portraits', type: 'portraits',
     imgs: [
+      'photos/portraits/portrait1.jpg',
       'photos/portraits/portraitC.jpg',
+      'photos/portraits/portrait3.jpg',
       'photos/portraits/portrait2.jpg',
       'photos/portraits/portrait4.jpg',
-      'photos/portraits/portrait1.jpg',
-      'photos/portraits/portrait3.jpg',
     ]
   },
   sportsAuto: {
@@ -318,7 +443,6 @@ const galleries = {
   }
 };
 
-// ── Navigation ───────────────────────────────────────────────────
 function showPage(name, idx) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
@@ -331,10 +455,17 @@ function openGallery(key) {
   const g = galleries[key];
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   window.scrollTo(0, 0);
-  if (g.type === 'slider') {
+
+  if (g.type === 'portraits') {
+    document.getElementById('page-portraits').classList.add('active');
+    document.getElementById('portraits-grid').innerHTML =
+      g.imgs.map(s => `<img src="${s}" alt="" onclick="openLightbox('${s}')">`).join('');
+
+  } else if (g.type === 'slider') {
     document.getElementById('page-slider').classList.add('active');
     document.getElementById('slider-title').textContent = g.title;
     initSlider(g.imgs);
+
   } else {
     document.getElementById('page-gallery').classList.add('active');
     document.getElementById('gallery-title').textContent = g.title;
@@ -352,33 +483,24 @@ function closeGallery() {
 }
 
 // ── Free-scroll slider ───────────────────────────────────────────
-// Uses the browser's native overflow-x scroll so the trackpad
-// two-finger swipe and mouse drag both feel completely natural.
-// No snapping — stops wherever you leave it.
-
 function initSlider(imgs) {
-  const track  = document.getElementById('slider-track');
-  const outer  = document.getElementById('slider-outer');
+  const track   = document.getElementById('slider-track');
+  const outer   = document.getElementById('slider-outer');
   const counter = document.getElementById('slider-counter');
 
-  // Build images (pointer-events none so clicks don't fire on drag)
-  track.innerHTML = imgs.map((src, i) =>
-    `<img src="${src}" alt="" data-idx="${i}">`
+  track.innerHTML = imgs.map(src =>
+    `<img src="${src}" alt="" ondragstart="return false">`
   ).join('');
 
   counter.textContent = `1 / ${imgs.length}`;
 
-  // Update counter on scroll
   outer.onscroll = () => {
-    const ratio = outer.scrollLeft / (outer.scrollWidth - outer.clientWidth);
+    const ratio = outer.scrollLeft / (outer.scrollWidth - outer.clientWidth || 1);
     const idx   = Math.round(ratio * (imgs.length - 1));
     counter.textContent = `${idx + 1} / ${imgs.length}`;
   };
 
-  // Mouse drag → translate to scrollLeft (feels like grabbing)
-  let isDown = false;
-  let startX = 0;
-  let scrollStart = 0;
+  let isDown = false, startX = 0, scrollStart = 0;
 
   outer.onmousedown = e => {
     isDown = true;
@@ -387,19 +509,15 @@ function initSlider(imgs) {
     outer.classList.add('grabbing');
     e.preventDefault();
   };
-
   window.onmousemove = e => {
     if (!isDown) return;
-    const dx = e.pageX - startX;
-    outer.scrollLeft = scrollStart - dx;
+    outer.scrollLeft = scrollStart - (e.pageX - startX);
   };
-
   window.onmouseup = () => {
     isDown = false;
     outer.classList.remove('grabbing');
   };
 
-  // Reset scroll position
   outer.scrollLeft = 0;
 }
 
