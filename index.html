@@ -20,14 +20,14 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
 .page{display:none;}
 .page.active{display:block;}
 
-/* HOME */
+/* HERO */
 .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:62vh;text-align:center;padding:4rem 2rem;}
-.hero-sub{font-size:0.9rem;color:#777;letter-spacing:0.1em;margin-bottom:1.2rem;font-weight:400;}
+.hero-sub{font-size:0.9rem;color:#777;letter-spacing:0.1em;margin-bottom:1.2rem;}
 .hero-name{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,9vw,6rem);font-weight:700;color:#D4940A;line-height:1.05;margin-bottom:1.6rem;}
 .hero-desc{font-size:1.1rem;color:#999;max-width:500px;line-height:1.8;font-style:italic;}
-.portfolio-heading{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:400;color:#fff;text-align:center;padding:2rem 2rem 2.5rem;letter-spacing:-0.01em;}
+.portfolio-heading{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:400;color:#fff;text-align:center;padding:2rem 2rem 2.5rem;}
 
-/* GALLERY GRID */
+/* GALLERY GRID HOME */
 .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0 4% 5rem;}
 .gallery-item{cursor:pointer;overflow:hidden;}
 .gallery-item-inner{overflow:hidden;}
@@ -35,21 +35,21 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
 .gallery-item:hover img{transform:scale(1.04);filter:brightness(1.05);}
 .gallery-caption{padding:1rem 0.3rem 2.5rem;}
 .gallery-caption strong{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;display:block;margin-bottom:0.2rem;}
-.gallery-caption span{font-size:0.85rem;color:#666;font-weight:400;letter-spacing:0.04em;}
+.gallery-caption span{font-size:0.85rem;color:#666;letter-spacing:0.04em;}
 
-/* FOOTER BAND HOME */
+/* FOOTER BAND */
 .footer-band{display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:4rem 6%;border-top:1px solid #181818;gap:2rem;}
 .footer-quote{font-size:1.15rem;color:#bbb;line-height:1.75;font-style:italic;max-width:400px;}
 .footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:1rem;}
-.footer-cta-title{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;font-weight:400;}
+.footer-cta-title{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;}
 .footer-buttons{display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:flex-end;}
 .footer-btn{border:1px solid #3a3a3a;color:#bbb;background:transparent;padding:0.45rem 1.1rem;border-radius:999px;font-family:'EB Garamond',serif;font-size:0.9rem;cursor:pointer;transition:border-color 0.2s,color 0.2s;}
 .footer-btn:hover{border-color:#fff;color:#fff;}
 .site-footer{text-align:center;padding:2.5rem;border-top:1px solid #111;}
 .site-footer h2{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
-.site-footer p{font-size:0.8rem;color:#444;font-weight:400;}
+.site-footer p{font-size:0.8rem;color:#444;}
 
-/* GALLERY INNER VIEW */
+/* GALLERY GRID VIEW */
 .gallery-view{padding:3rem 5%;}
 .gallery-view-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.5rem;}
 .back-btn{border:1px solid #333;color:#aaa;background:transparent;padding:0.4rem 1rem;border-radius:999px;font-family:'EB Garamond',serif;font-size:0.9rem;cursor:pointer;transition:border-color 0.2s,color 0.2s;}
@@ -59,6 +59,35 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
 .gallery-view-grid img{width:100%;height:220px;object-fit:cover;display:block;cursor:pointer;transition:filter 0.3s;filter:brightness(0.88);}
 .gallery-view-grid img:hover{filter:brightness(1.08);}
 
+/* FREE SCROLL SLIDER */
+.slider-outer{
+  width:100%;
+  overflow-x:scroll;
+  overflow-y:hidden;
+  cursor:grab;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none; /* Firefox */
+}
+.slider-outer::-webkit-scrollbar{display:none;} /* Chrome/Safari */
+.slider-outer.grabbing{cursor:grabbing;}
+.slider-track{
+  display:flex;
+  gap:4px;
+  padding:0 4%;
+  width:max-content;
+}
+.slider-track img{
+  height:78vh;
+  width:auto;
+  object-fit:cover;
+  display:block;
+  flex-shrink:0;
+  pointer-events:none;
+  -webkit-user-drag:none;
+  border-radius:2px;
+}
+.slider-counter{text-align:center;font-size:0.8rem;color:#555;padding:1rem 0 1.5rem;letter-spacing:0.08em;}
+
 /* LIGHTBOX */
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.96);display:none;align-items:center;justify-content:center;z-index:9999;cursor:pointer;}
 .lightbox.open{display:flex;}
@@ -66,28 +95,31 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
 .lb-close{position:absolute;top:1.5rem;right:2rem;color:#fff;font-size:2rem;opacity:0.6;line-height:1;}
 .lb-close:hover{opacity:1;}
 
-/* ABOUT PAGE */
+/* ABOUT */
 .about-page{display:flex;flex-direction:column;align-items:center;text-align:center;padding:6rem 2rem 0;}
 .about-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;color:#fff;margin-bottom:2rem;}
-.about-bio{font-size:1.05rem;color:#aaa;max-width:600px;line-height:1.85;font-weight:400;}
+.about-bio{font-size:1.05rem;color:#aaa;max-width:600px;line-height:1.85;}
 .about-cta-section{display:flex;flex-direction:column;align-items:center;padding:5rem 2rem 2rem;text-align:center;}
 .about-cta-sub{font-size:0.9rem;color:#777;letter-spacing:0.07em;margin-bottom:0.8rem;}
 .about-cta-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:400;color:#fff;max-width:420px;line-height:1.3;margin-bottom:2rem;}
 .btn-violet{background:#7B68EE;color:#fff;border:none;padding:0.85rem 2.2rem;font-family:'EB Garamond',serif;font-size:1rem;border-radius:4px;cursor:pointer;letter-spacing:0.03em;transition:opacity 0.2s;}
 .btn-violet:hover{opacity:0.85;}
 
-/* CONTACT PAGE */
+/* CONTACT */
 .contact-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding:6rem 8% 5rem;min-height:70vh;align-items:center;}
-.contact-form{display:flex;flex-direction:column;gap:0;}
+.contact-form{display:flex;flex-direction:column;}
 .form-group{display:flex;flex-direction:column;margin-bottom:2rem;}
-.form-group label{font-size:0.85rem;color:#777;margin-bottom:0.6rem;font-weight:400;letter-spacing:0.03em;}
+.form-group label{font-size:0.85rem;color:#777;margin-bottom:0.6rem;letter-spacing:0.03em;}
 .form-group input,.form-group textarea{background:transparent;border:none;border-bottom:1px solid #333;color:#fff;padding:0.4rem 0;font-family:'EB Garamond',serif;font-size:1rem;outline:none;width:100%;resize:none;transition:border-color 0.2s;}
 .form-group input:focus,.form-group textarea:focus{border-bottom-color:#aaa;}
-.contact-submit{background:#7B68EE;color:#fff;border:none;padding:0.85rem;font-family:'EB Garamond',serif;font-size:1rem;cursor:pointer;letter-spacing:0.03em;width:100%;margin-top:0.5rem;border-radius:3px;transition:opacity 0.2s;}
+.contact-submit{background:#7B68EE;color:#fff;border:none;padding:0.85rem;font-family:'EB Garamond',serif;font-size:1rem;cursor:pointer;width:100%;margin-top:0.5rem;border-radius:3px;transition:opacity 0.2s;}
 .contact-submit:hover{opacity:0.85;}
+.contact-submit:disabled{opacity:0.5;cursor:not-allowed;}
 .contact-info{text-align:right;}
-.contact-info p{font-size:1rem;color:#ccc;line-height:1.8;font-weight:400;margin-bottom:2rem;max-width:320px;margin-left:auto;}
+.contact-info .info-text{font-size:1rem;color:#ccc;line-height:1.8;margin-bottom:2rem;max-width:320px;margin-left:auto;}
 .contact-info .info-detail{font-size:0.95rem;font-weight:700;color:#fff;line-height:1.9;}
+.form-success{display:none;text-align:center;padding:2rem;color:#aaa;font-style:italic;font-size:1.1rem;}
+.form-success.show{display:block;}
 
 @media(max-width:640px){
   .gallery-grid{grid-template-columns:1fr;}
@@ -96,7 +128,8 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
   .gallery-view-grid{grid-template-columns:repeat(2,1fr);}
   .contact-wrapper{grid-template-columns:1fr;gap:3rem;padding:4rem 6%;}
   .contact-info{text-align:left;}
-  .contact-info p{margin-left:0;}
+  .contact-info .info-text{margin-left:0;}
+  .slider-track img{height:50vh;}
 }
 </style>
 </head>
@@ -118,44 +151,25 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
     <h1 class="hero-name">Jocelyn Alazard</h1>
     <p class="hero-desc">Courses, voyage, grimpe, vie. Chaque image est un fragment d'une histoire qui mérite d'être racontée.</p>
   </section>
-
   <h2 class="portfolio-heading">Portfolio</h2>
-
   <div class="gallery-grid">
-    <!-- ============================================================
-         POUR CHANGER LES PHOTOS DE COUVERTURE DES GALERIES :
-         Remplace src="..." par le chemin de ta photo.
-         Ex: src="photos/sports-cover.jpg"
-         ============================================================ -->
     <div class="gallery-item" onclick="openGallery('sports')">
-      <div class="gallery-item-inner">
-        <img src="photos/sports/sports1.jpg" alt="Sports">
-      </div>
+      <div class="gallery-item-inner"><img src="photos/sports/sports1.jpg" alt="Sports"></div>
       <div class="gallery-caption"><strong>Sports</strong><span>Gallery</span></div>
     </div>
-
     <div class="gallery-item" onclick="openGallery('portraits')">
-      <div class="gallery-item-inner">
-        <img src="photos/portraits/portrait4.jpg" alt="Portraits">
-      </div>
+      <div class="gallery-item-inner"><img src="photos/portraits/portrait3.jpg" alt="Portraits"></div>
       <div class="gallery-caption"><strong>Portraits</strong><span>Gallery</span></div>
     </div>
-
-    <div class="gallery-item" onclick="openGallery('sportsauto')">
-      <div class="gallery-item-inner">
-        <img src="photos/sportsAuto/auto1.jpg" alt="Sports auto">
-      </div>
+    <div class="gallery-item" onclick="openGallery('sportsAuto')">
+      <div class="gallery-item-inner"><img src="photos/sportsAuto/auto2.jpg" alt="Sports auto"></div>
       <div class="gallery-caption"><strong>Sports auto</strong><span>Gallery</span></div>
     </div>
-
     <div class="gallery-item" onclick="openGallery('details')">
-      <div class="gallery-item-inner">
-        <img src="photos/details/details4.jpg" alt="Détails">
-      </div>
+      <div class="gallery-item-inner"><img src="photos/details/details1.jpg" alt="Détails"></div>
       <div class="gallery-caption"><strong>Détails</strong><span>Gallery</span></div>
     </div>
   </div>
-
   <div class="footer-band">
     <p class="footer-quote">Chaque prise de vue est un choix. Angle, lumière, timing. Je recherche le cadre qui donne vie à l'instant.</p>
     <div class="footer-right">
@@ -173,7 +187,7 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
   </footer>
 </div>
 
-<!-- GALLERY DETAIL VIEW -->
+<!-- GALLERY GRID VIEW -->
 <div id="page-gallery" class="page">
   <div class="gallery-view">
     <div class="gallery-view-header">
@@ -183,6 +197,24 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
     <div class="gallery-view-grid" id="gallery-view-grid"></div>
   </div>
   <footer class="site-footer" style="margin-top:4rem;">
+    <h2>Jocelyn Alazard</h2>
+    <p>2026. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- FREE SCROLL SLIDER VIEW -->
+<div id="page-slider" class="page">
+  <div class="gallery-view">
+    <div class="gallery-view-header">
+      <button class="back-btn" onclick="closeGallery()">← Retour</button>
+      <h2 class="gallery-view-title" id="slider-title"></h2>
+    </div>
+  </div>
+  <div class="slider-outer" id="slider-outer">
+    <div class="slider-track" id="slider-track"></div>
+  </div>
+  <div class="slider-counter" id="slider-counter"></div>
+  <footer class="site-footer" style="margin-top:2rem;">
     <h2>Jocelyn Alazard</h2>
     <p>2026. All rights reserved.</p>
   </footer>
@@ -208,25 +240,30 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
 <!-- CONTACT -->
 <div id="page-contact" class="page">
   <div class="contact-wrapper">
-    <div class="contact-form">
-      <div class="form-group">
-        <label>Nom</label>
-        <input type="text">
+    <div>
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/maqkjdzq" method="POST">
+        <div class="form-group">
+          <label>Nom</label>
+          <input type="text" name="nom" required>
+        </div>
+        <div class="form-group">
+          <label>Adresse email *</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label>Votre message *</label>
+          <textarea rows="4" name="message" required></textarea>
+        </div>
+        <button type="submit" class="contact-submit" id="submit-btn">Envoyer</button>
+      </form>
+      <div class="form-success" id="form-success">
+        Message envoyé ! Je vous répondrai dans les plus brefs délais.
       </div>
-      <div class="form-group">
-        <label>adresse email *</label>
-        <input type="email">
-      </div>
-      <div class="form-group">
-        <label>Votre message *</label>
-        <textarea rows="3"></textarea>
-      </div>
-      <button class="contact-submit">Envoyer</button>
     </div>
     <div class="contact-info">
-      <p>Une idée, un projet ou simplement une question ? Vous pouvez me contacter, je serai ravi d'échanger avec vous.</p>
+      <p class="info-text">Une idée, un projet ou simplement une question ? Vous pouvez me contacter, je serai ravi d'échanger avec vous.</p>
       <div class="info-detail">
-        <p>Téléphone: +06 46 17 27 75</p>
+        <p>Téléphone : +06 46 17 27 75</p>
         <p>jocelyn.alazard@icloud.com</p>
       </div>
     </div>
@@ -244,59 +281,44 @@ nav{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.4rem;
 </div>
 
 <script>
-// ================================================================
-// POUR CHANGER LES PHOTOS DANS LES GALERIES :
-// Dans chaque tableau "imgs", remplace les URLs par tes chemins.
-// Ex: 'photos/sports/photo1.jpg'
-// Tu peux ajouter ou supprimer des lignes dans chaque tableau.
-// ================================================================
 const galleries = {
   sports: {
-    title: 'Sports',
-    imgs: [
-      'https://images.unsplash.com/photo-1522163182402-834f871fd851?w=800&q=80',
-      'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80',
-      'https://images.unsplash.com/photo-1516592673884-4a382d1124c2?w=800&q=80',
-      'https://images.unsplash.com/photo-1547475239-f8c47bfb4a8c?w=800&q=80',
-      'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80',
-      'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80',
-    ]
+    title: 'Sports', type: 'grid',
+    imgs: ['photos/sports/sports1.jpg']
   },
   portraits: {
-    title: 'Portraits',
+    title: 'Portraits', type: 'grid',
     imgs: [
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
-      'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80',
-      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80',
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80',
-      'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=800&q=80',
-      'https://images.unsplash.com/photo-1463453091185-61582044d556?w=800&q=80',
+      'photos/portraits/portraitC.jpg',
+      'photos/portraits/portrait2.jpg',
+      'photos/portraits/portrait4.jpg',
+      'photos/portraits/portrait1.jpg',
+      'photos/portraits/portrait3.jpg',
     ]
   },
-  sportsauto: {
-    title: 'Sports auto',
+  sportsAuto: {
+    title: 'Sports auto', type: 'slider',
     imgs: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-      'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&q=80',
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
-      'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80',
-      'https://images.unsplash.com/photo-1612825173281-9a193378527e?w=800&q=80',
-      'https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800&q=80',
+      'photos/sportsAuto/auto3.jpg',
+      'photos/sportsAuto/auto1.jpg',
+      'photos/sportsAuto/auto5.jpg',
+      'photos/sportsAuto/auto2.jpg',
+      'photos/sportsAuto/auto4.jpg',
     ]
   },
   details: {
-    title: 'Détails',
+    title: 'Détails', type: 'slider',
     imgs: [
-      'https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=800&q=80',
-      'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800&q=80',
-      'https://images.unsplash.com/photo-1541443131876-a4246d8d2362?w=800&q=80',
-      'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80',
-      'https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=800&q=80',
-      'https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800&q=80',
+      'photos/details/details4.png',
+      'photos/details/details2.jpg',
+      'photos/details/details5.jpg',
+      'photos/details/details1.jpg',
+      'photos/details/details3.jpg',
     ]
   }
 };
 
+// ── Navigation ───────────────────────────────────────────────────
 function showPage(name, idx) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
@@ -307,12 +329,18 @@ function showPage(name, idx) {
 
 function openGallery(key) {
   const g = galleries[key];
-  document.getElementById('gallery-title').textContent = g.title;
-  document.getElementById('gallery-view-grid').innerHTML =
-    g.imgs.map(s => `<img src="${s}" alt="" onclick="openLightbox('${s}')">`).join('');
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-gallery').classList.add('active');
   window.scrollTo(0, 0);
+  if (g.type === 'slider') {
+    document.getElementById('page-slider').classList.add('active');
+    document.getElementById('slider-title').textContent = g.title;
+    initSlider(g.imgs);
+  } else {
+    document.getElementById('page-gallery').classList.add('active');
+    document.getElementById('gallery-title').textContent = g.title;
+    document.getElementById('gallery-view-grid').innerHTML =
+      g.imgs.map(s => `<img src="${s}" alt="" onclick="openLightbox('${s}')">`).join('');
+  }
 }
 
 function closeGallery() {
@@ -323,14 +351,93 @@ function closeGallery() {
   window.scrollTo(0, 0);
 }
 
+// ── Free-scroll slider ───────────────────────────────────────────
+// Uses the browser's native overflow-x scroll so the trackpad
+// two-finger swipe and mouse drag both feel completely natural.
+// No snapping — stops wherever you leave it.
+
+function initSlider(imgs) {
+  const track  = document.getElementById('slider-track');
+  const outer  = document.getElementById('slider-outer');
+  const counter = document.getElementById('slider-counter');
+
+  // Build images (pointer-events none so clicks don't fire on drag)
+  track.innerHTML = imgs.map((src, i) =>
+    `<img src="${src}" alt="" data-idx="${i}">`
+  ).join('');
+
+  counter.textContent = `1 / ${imgs.length}`;
+
+  // Update counter on scroll
+  outer.onscroll = () => {
+    const ratio = outer.scrollLeft / (outer.scrollWidth - outer.clientWidth);
+    const idx   = Math.round(ratio * (imgs.length - 1));
+    counter.textContent = `${idx + 1} / ${imgs.length}`;
+  };
+
+  // Mouse drag → translate to scrollLeft (feels like grabbing)
+  let isDown = false;
+  let startX = 0;
+  let scrollStart = 0;
+
+  outer.onmousedown = e => {
+    isDown = true;
+    startX = e.pageX;
+    scrollStart = outer.scrollLeft;
+    outer.classList.add('grabbing');
+    e.preventDefault();
+  };
+
+  window.onmousemove = e => {
+    if (!isDown) return;
+    const dx = e.pageX - startX;
+    outer.scrollLeft = scrollStart - dx;
+  };
+
+  window.onmouseup = () => {
+    isDown = false;
+    outer.classList.remove('grabbing');
+  };
+
+  // Reset scroll position
+  outer.scrollLeft = 0;
+}
+
+// ── Lightbox ─────────────────────────────────────────────────────
 function openLightbox(src) {
   document.getElementById('lb-img').src = src;
   document.getElementById('lightbox').classList.add('open');
 }
-
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
 }
+
+// ── Contact ──────────────────────────────────────────────────────
+document.getElementById('contact-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours…';
+  try {
+    const res = await fetch(e.target.action, {
+      method: 'POST',
+      body: new FormData(e.target),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      e.target.style.display = 'none';
+      document.getElementById('form-success').classList.add('show');
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Envoyer';
+      alert('Une erreur est survenue. Réessaie ou écris-moi directement.');
+    }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = 'Envoyer';
+    alert('Erreur réseau. Réessaie plus tard.');
+  }
+});
 
 showPage('home', 0);
 </script>
